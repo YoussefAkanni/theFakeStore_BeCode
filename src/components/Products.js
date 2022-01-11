@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 const Products = () => {
   let { id } = useParams();
@@ -14,8 +14,8 @@ const Products = () => {
   return (
     <div className="products">
       {data.map((elem) => (
-        <a
-          href={"/id/" + elem.id}
+        <Link
+          to={"/product/" + elem.id}
           className="product"
           data={elem}
           key={elem.id}
@@ -23,7 +23,7 @@ const Products = () => {
           <img src={elem.image} alt={elem.title} />
           <p>{elem.price} $ </p>
           <h5>{elem.title} </h5>
-        </a>
+        </Link>
       ))}
     </div>
   );
