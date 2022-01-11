@@ -1,0 +1,81 @@
+.star {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 1px 1px 20px 1px rgba(0, 0, 0, 0.07);
+  width: 80em;
+  height: 20em;
+  max-width: 100%;
+  margin: auto;
+  margin-top: 70px;
+  padding: 20px 50px;
+  background-color: white;
+  border-radius: 2px;
+  .starProducts {
+    font-family: "Metamorphous", cursive;
+    position: absolute;
+    top: -30px;
+    left: 12px;
+  }
+  .text {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 30em;
+    * {
+      margin: 10px;
+    }
+    p {
+      font-weight: 100;
+    }
+    h3 {
+      margin-top: 30px;
+
+      font-weight: 400;
+      font-size: 37px;
+      text-align: center;
+    }
+  }
+
+  .bot {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    button {
+      width: 70px;
+      height: 30px;
+      border: none;
+      border-radius: 4px;
+      background-color: black;
+      color: white;
+      cursor: pointer;
+    }
+    span {
+      font-weight: 500;
+      display: block;
+    }
+  }
+
+  img {
+    margin: 10px 10px 10px 40px;
+    width: 30em;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .star {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .star {
+    width: 100%;
+    img {
+      width: 20%;
+    }
+  }
+}
