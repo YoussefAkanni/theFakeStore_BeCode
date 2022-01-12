@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { ReactComponent as Cart } from "../assets/cart.svg";
+import { ReactComponent as Heart } from "../assets/heart.svg";
 
 const Product = () => {
   const { id } = useParams();
@@ -11,9 +13,25 @@ const Product = () => {
   }, []);
   console.log(data);
   return (
-    <div>
-      <h1> {data.title} </h1>
-    </div>
+    <article>
+      <img src={data.image} alt={data.title + " image"} />
+      <div className="text">
+        <h1> {data.title} </h1>
+        <p>{data.description} </p>
+        <div className="bot">
+          <button>Buy Now</button>
+          <a href="#">
+            <Heart />
+          </a>
+          <a href="#">
+            <Cart />
+          </a>
+          <p>
+            <span>{data.price} $ </span>
+          </p>
+        </div>
+      </div>
+    </article>
   );
 };
 

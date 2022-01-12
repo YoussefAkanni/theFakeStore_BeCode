@@ -1,17 +1,21 @@
-import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import Categories from "../components/Categories";
+import Products from "../components/Products";
+import Star from "../components/Star";
 
-const Products = () => {
+const Electronics = () => {
   const [data, setData] = useState([]);
   useEffect(() => {
-    fetch("https://fakestoreapi.com/products")
+    fetch(`https://fakestoreapi.com/products/category/electronics`)
       .then((res) => res.json())
       .then((data) => setData(data));
   }, []);
-
   console.log(data);
   return (
-    <div className="products">
+    <div className="Home">
+      <Star />
+      <Categories />
       {data.map((elem) => (
         <Link
           to={"/product/" + elem.id}
@@ -28,4 +32,4 @@ const Products = () => {
   );
 };
 
-export default Products;
+export default Electronics;

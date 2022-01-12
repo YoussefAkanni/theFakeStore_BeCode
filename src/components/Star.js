@@ -17,7 +17,6 @@ const Star = () => {
         <h3>{data.title} </h3>
         <p>{data.description} </p>
         <div className="bot">
-          <button>Buy Now</button>
           <a href="#">
             <Heart />
           </a>
@@ -27,6 +26,7 @@ const Star = () => {
           <p>
             <span>{data.price} $ </span>
           </p>
+          <button>Buy Now</button>
         </div>
       </div>
       <img src={data.image} alt="product_image" />

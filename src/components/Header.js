@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { ReactComponent as Cart } from "../assets/cart.svg";
 import { ReactComponent as Heart } from "../assets/heart.svg";
 import { ReactComponent as Search } from "../assets/search.svg";
@@ -14,7 +15,9 @@ const Header = () => {
   };
   return (
     <header>
-      <h1>theFakeStore</h1>
+      <Link to={"/"}>
+        <h1>theFakeStore</h1>
+      </Link>
       <div className="logos">
         <a href="#">
           <Search />
