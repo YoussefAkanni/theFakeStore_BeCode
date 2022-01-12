@@ -8,22 +8,22 @@ import { Link } from "react-router-dom";
 const Categories = () => {
   return (
     <div className="categories">
-      <Link to={"/electronics"}>
+      <Link to={"/category/electronics"}>
         <img src={electronics} alt="electronics" />
         <p>electronics</p>
       </Link>
-      <a href="#">
+      <Link to={"/category/women's clothing"}>
         <img src={dress} alt="dress" />
         <p>women's clothing</p>
-      </a>
-      <a href="#">
+      </Link>
+      <Link to={"/category/men's clothing"}>
         <img src={tshirt} alt="tshirt" />
         <p>men's clothing</p>
-      </a>
-      <a href="#">
+      </Link>
+      <Link to={"/category/jewelery"}>
         <img src={jewelery} alt="jewelery" />
         <p>jewelery</p>
-      </a>
+      </Link>
     </div>
   );
 };

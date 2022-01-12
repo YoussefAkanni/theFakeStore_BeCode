@@ -1,16 +1,19 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Categories from "../components/Categories";
-import Products from "../components/Products";
+import { useParams } from "react-router-dom";
 import Star from "../components/Star";
 
-const Electronics = () => {
+const Category = () => {
+  const { category } = useParams();
+  console.log(category);
+
   const [data, setData] = useState([]);
   useEffect(() => {
-    fetch(`https://fakestoreapi.com/products/category/electronics`)
+    fetch(`https://fakestoreapi.com/products/category/${category}`)
       .then((res) => res.json())
       .then((data) => setData(data));
-  }, []);
+  }, [category]);
   console.log(data);
   return (
     <div className="Home">
@@ -32,4 +35,4 @@ const Electronics = () => {
   );
 };
 
-export default Electronics;
+export default Category;
