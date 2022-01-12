@@ -12,7 +12,7 @@ const Star = () => {
 
   return (
     <div className="star">
-      <h2 className="starProducts">Star Products: </h2>
+      <h2 className="starProducts">Popular this week: </h2>
       <div className="text">
         <h3>{data.title} </h3>
         <p>{data.description} </p>
