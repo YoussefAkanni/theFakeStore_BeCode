@@ -48,11 +48,13 @@ article {
     display: flex;
     flex-direction: column;
     width: 100vw;
+    height: 40em;
+    text-align: center;
     .text {
       max-width: 90%;
     }
     img {
-      width: 7em;
+      width: 10em;
     }
     .bot {
       margin: 0;
@@ -61,14 +63,13 @@ article {
 }
 @media screen and (max-width: 576px) {
   article {
-    display: flex;
-    flex-direction: column;
     width: 100%;
-    img {
-      width: 7em;
+    height: 35em;
+    h1 {
+      font-size: 20px;
     }
-    .bot {
-      margin: 0;
+    p {
+      font-size: 12px;
     }
   }
 }
