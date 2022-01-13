@@ -5,10 +5,13 @@ import { ReactComponent as Heart } from "../assets/heart.svg";
 import { ReactComponent as Search } from "../assets/search.svg";
 import Login from "./Login";
 
-const Header = () => {
+const Header = (props) => {
   const [isActive, setActive] = useState(false);
   const [isDisplay, setIsDisplay] = useState(false);
   const [buttonPopup, setButtonPopup] = useState(false);
+  const [login, setLogin] = useState(false);
+  const [username, setUsername] = useState("");
+
   const toggleActive = (e) => {
     setActive(!isActive);
     setIsDisplay(!isDisplay);
@@ -32,13 +35,17 @@ const Header = () => {
           <Cart />
         </a>
 
-        <button
-          onClick={(e) => {
-            setButtonPopup(true);
-          }}
-        >
-          Login
-        </button>
+        {login ? (
+          <div>hello {username} </div>
+        ) : (
+          <button
+            onClick={(e) => {
+              setButtonPopup(true);
+            }}
+          >
+            Login
+          </button>
+        )}
       </div>
       <div className={isDisplay ? "is-display menu" : "menu"}>
         <a href="#">Search</a>
@@ -53,7 +60,14 @@ const Header = () => {
       >
         <span className="burger-icon"></span>
       </a>
-      <Login trigger={buttonPopup} setTrigger={setButtonPopup}></Login>
+      <Login
+        trigger={buttonPopup}
+        setTrigger={setButtonPopup}
+        login={login}
+        setLogin={setLogin}
+        username={username}
+        setUsername={setUsername}
+      ></Login>
     </header>
   );
 };
