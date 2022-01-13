@@ -26,9 +26,8 @@ const Product = () => {
           <a href="#">
             <Cart />
           </a>
-          <p>
-            <span>{data.price} $ </span>
-          </p>
+
+          <span>{data.price} $ </span>
         </div>
       </div>
     </article>

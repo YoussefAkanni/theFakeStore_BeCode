@@ -9,7 +9,6 @@ const Products = () => {
       .then((data) => setData(data));
   }, []);
 
-  console.log(data);
   return (
     <div className="products">
       {data.map((elem) => (

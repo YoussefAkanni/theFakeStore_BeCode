@@ -1,10 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;500;700&display=swap");
-@import "./components/_header.scss";
-@import "./components/star.scss";
-@import "./components/categories.scss";
-@import "./components/products.scss";
-@import "./components/footer.scss";
-@import "./components/product.scss";
+@import "./components/_header";
+@import "./components/star";
+@import "./components/categories";
+@import "./components/products";
+@import "./components/footer";
+@import "./components/product";
+@import "./components/login";
+@import "./components/register";
 
 * {
   box-sizing: border-box;

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import electronics from "../assets/electronics.png";
 import dress from "../assets/dress.png";
 import tshirt from "../assets/tshirt.png";

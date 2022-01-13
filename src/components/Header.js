@@ -3,16 +3,19 @@ import { Link } from "react-router-dom";
 import { ReactComponent as Cart } from "../assets/cart.svg";
 import { ReactComponent as Heart } from "../assets/heart.svg";
 import { ReactComponent as Search } from "../assets/search.svg";
+import Login from "./Login";
 
 const Header = () => {
   const [isActive, setActive] = useState(false);
   const [isDisplay, setIsDisplay] = useState(false);
+  const [buttonPopup, setButtonPopup] = useState(false);
   const toggleActive = (e) => {
     setActive(!isActive);
     setIsDisplay(!isDisplay);
 
     e.preventDefault();
   };
+
   return (
     <header>
       <Link to={"/"}>
@@ -29,7 +32,13 @@ const Header = () => {
           <Cart />
         </a>
 
-        <button>Login</button>
+        <button
+          onClick={(e) => {
+            setButtonPopup(true);
+          }}
+        >
+          Login
+        </button>
       </div>
       <div className={isDisplay ? "is-display menu" : "menu"}>
         <a href="#">Search</a>
@@ -44,6 +53,7 @@ const Header = () => {
       >
         <span className="burger-icon"></span>
       </a>
+      <Login trigger={buttonPopup} setTrigger={setButtonPopup}></Login>
     </header>
   );
 };

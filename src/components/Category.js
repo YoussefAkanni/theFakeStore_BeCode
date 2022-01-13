@@ -6,7 +6,6 @@ import Star from "../components/Star";
 
 const Category = () => {
   const { category } = useParams();
-  console.log(category);
 
   const [data, setData] = useState([]);
   useEffect(() => {
@@ -14,7 +13,7 @@ const Category = () => {
       .then((res) => res.json())
       .then((data) => setData(data));
   }, [category]);
-  console.log(data);
+
   return (
     <div className="Home">
       <Star />
