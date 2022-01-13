@@ -15,12 +15,6 @@ article {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    p {
-      width: 100%;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
   }
   .bot {
     margin: 20px;
@@ -58,6 +52,12 @@ article {
     text-align: center;
     .text {
       max-width: 90%;
+      p {
+        width: 60%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
     }
     img {
       width: 10em;

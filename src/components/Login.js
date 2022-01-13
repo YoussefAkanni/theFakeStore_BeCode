@@ -5,6 +5,8 @@ import { useState } from "react/cjs/react.development";
 const Login = (props) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [loginError, setLoginError] = useState(false);
+  const [login, setLogin] = useState(false);
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -21,20 +23,23 @@ const Login = (props) => {
     })
       .then((res) => {
         if (res.ok) {
+          setLogin(true);
+          setLoginError(false);
           return res.json();
         } else {
           console.log("Something went wrong");
+          setLoginError(true);
         }
       })
       .then((json) => console.log(json));
     setPassword("");
     setUsername("");
   };
-
-  console.log(JSON.parse(atob("eyJr389hbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9")));
+  console.log(login);
 
   return props.trigger ? (
     <div className="popup">
+      {login ? console.log("oui") : console.log("non")}
       <div className="popup-inner">
         <button className="close-btn" onClick={() => props.setTrigger(false)}>
           close
@@ -45,6 +50,9 @@ const Login = (props) => {
             <div className="username">
               <p>Username</p>
               <input
+                style={{
+                  border: loginError ? "1px solid red" : "1px solid black",
+                }}
                 type="text"
                 required
                 value={username}
@@ -54,12 +62,18 @@ const Login = (props) => {
             <div className="password">
               <p>Password</p>
               <input
+                style={{
+                  border: loginError ? "1px solid red" : "1px solid black",
+                }}
                 type="password"
                 required
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
             </div>
+            {loginError && (
+              <p className="error-login">Wrong Username or Password</p>
+            )}
             <div>
               <button className="login">Login</button>
             </div>
