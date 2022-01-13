@@ -19,18 +19,20 @@ const Category = () => {
     <div className="Home">
       <Star />
       <Categories />
-      {data.map((elem) => (
-        <Link
-          to={"/product/" + elem.id}
-          className="product"
-          data={elem}
-          key={elem.id}
-        >
-          <img src={elem.image} alt={elem.title} />
-          <p>{elem.price} $ </p>
-          <h5>{elem.title} </h5>
-        </Link>
-      ))}
+      <div className="products">
+        {data.map((elem) => (
+          <Link
+            to={"/product/" + elem.id}
+            className="product"
+            data={elem}
+            key={elem.id}
+          >
+            <img src={elem.image} alt={elem.title} />
+            <p>{elem.price} $ </p>
+            <h5>{elem.title} </h5>
+          </Link>
+        ))}
+      </div>
     </div>
   );
 };
