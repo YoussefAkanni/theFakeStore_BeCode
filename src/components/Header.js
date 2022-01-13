@@ -10,13 +10,21 @@ const Header = (props) => {
   const [isDisplay, setIsDisplay] = useState(false);
   const [buttonPopup, setButtonPopup] = useState(false);
   const [login, setLogin] = useState(false);
+  const [displayCart, setDisplayCart] = useState(false);
   const [username, setUsername] = useState("");
+  console.log(displayCart);
 
   const toggleActive = (e) => {
     setActive(!isActive);
     setIsDisplay(!isDisplay);
 
     e.preventDefault();
+  };
+
+  const handleCart = (e) => {
+    e.preventDefault();
+
+    setDisplayCart(!displayCart);
   };
 
   return (
@@ -31,9 +39,17 @@ const Header = (props) => {
         <a href="#">
           <Heart />
         </a>
-        <a href="#">
+        <button className="btn-cart" onClick={handleCart}>
           <Cart />
-        </a>
+        </button>
+
+        {displayCart ? (
+          <div className="cart">
+            <div className="arrow"></div>
+          </div>
+        ) : (
+          ""
+        )}
 
         {login ? (
           <div>hello {username} </div>
@@ -42,6 +58,7 @@ const Header = (props) => {
             onClick={(e) => {
               setButtonPopup(true);
             }}
+            className="btn-login"
           >
             Login
           </button>

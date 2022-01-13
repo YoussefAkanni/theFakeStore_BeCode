@@ -2,6 +2,7 @@
 @import "../burger";
 
 header {
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -24,13 +25,18 @@ header {
     * {
       margin: 5px 15px;
     }
-    button {
+    .btn-login {
       width: 70px;
       height: 30px;
       border: none;
       border-radius: 4px;
       background-color: black;
       color: white;
+      cursor: pointer;
+    }
+    .btn-cart {
+      border: none;
+      background-color: rgba(255, 255, 255, 0);
       cursor: pointer;
     }
   }
@@ -44,6 +50,28 @@ header {
     overflow: hidden;
   }
 
+  .cart {
+    z-index: 91;
+    position: absolute;
+    width: 30vw;
+    height: 50vh;
+    background-color: rgb(245, 248, 252);
+    box-shadow: 1px 1px 20px 1px rgba(0, 0, 0, 0.405);
+    top: 65px;
+    right: 50px;
+    border-radius: 6px;
+    .arrow {
+      position: absolute;
+      top: -21px;
+      right: 63px;
+      display: inline-block;
+      height: 0;
+      width: 0;
+      border-right: 18.25px solid transparent;
+      border-bottom: 32px solid red;
+      border-left: 18.5px solid transparent;
+    }
+  }
   @media screen and (max-width: 576px) {
     .menu-button {
       display: inline-block;
