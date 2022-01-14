@@ -43,7 +43,7 @@ const Login = (props) => {
       <div className="popup">
         <div className="popup-inner">
           <button className="close-btn" onClick={() => props.setTrigger(false)}>
-            close
+            X
           </button>
           <div>
             <p className="text">Connectez-vous à votre compte</p>

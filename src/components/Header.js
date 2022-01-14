@@ -12,7 +12,7 @@ const Header = (props) => {
   const [login, setLogin] = useState(false);
   const [username, setUsername] = useState("");
   const [displayCart, setDisplayCart] = useState(false);
-  const { cartItems, onRemove } = props;
+  const { cartItems, onRemove, countCartItems } = props;
 
   const itemsPrice = cartItems.reduce((a, c) => a + c.price * c.qty, 0);
 
@@ -42,8 +42,9 @@ const Header = (props) => {
           <Heart />
         </a>
         <button className="btn-cart" onClick={handleCart}>
-          <Cart />
+          <Cart />{" "}
         </button>
+        {countCartItems ? <div className="badge">{countCartItems} </div> : ""}
 
         {displayCart ? (
           <div className="cart">

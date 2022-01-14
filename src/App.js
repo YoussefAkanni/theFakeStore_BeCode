@@ -51,7 +51,11 @@ function App() {
 
   return (
     <Router>
-      <Header cartItems={cartItems} onRemove={onRemove} />
+      <Header
+        cartItems={cartItems}
+        onRemove={onRemove}
+        countCartItems={cartItems.length}
+      />
       <Routes>
         <Route path="/" exact={true} element={<Home onAdd={onAdd} />}></Route>
         <Route path="/product/:ids" element={<Product onAdd={onAdd} />}></Route>

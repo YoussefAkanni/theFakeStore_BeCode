@@ -19,6 +19,7 @@ header {
     font-size: 1.7em;
   }
   .logos {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -38,6 +39,21 @@ header {
       border: none;
       background-color: rgba(255, 255, 255, 0);
       cursor: pointer;
+    }
+    .badge {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      background: rgb(183, 255, 195);
+      border: 1px solid rgb(0, 0, 0);
+      border-radius: 100%;
+      width: 14px;
+      height: 14px;
+      top: 1px;
+      right: 112px;
+      font-size: 8px;
+      color: rgb(0, 0, 0);
     }
   }
   .menu-button {
@@ -60,8 +76,8 @@ header {
     height: 50vh;
     background-color: rgb(255, 255, 255);
     box-shadow: 1px 1px 20px 1px rgba(0, 0, 0, 0.405);
-    top: 65px;
-    right: 50px;
+    top: 50px;
+    right: 30px;
     border-radius: 6px;
     .arrow {
       position: absolute;
@@ -167,12 +183,14 @@ header {
     }
   }
   @media screen and (max-width: 768px) {
+    .itemInfo {
+      max-width: 80% !important;
+      min-width: 80% !important;
+    }
+  }
+  @media screen and (max-width: 1100px) {
     .row {
       flex-direction: column;
-      .itemInfo {
-        max-width: 80% !important;
-        min-width: 80% !important;
-      }
     }
   }
 }
