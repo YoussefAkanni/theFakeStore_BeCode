@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react";
 import { ReactComponent as Cart } from "../assets/cart.svg";
 import { ReactComponent as Heart } from "../assets/heart.svg";
 
-const Star = () => {
+const Star = (props) => {
   const [data, setData] = useState([]);
+  const onAdd = props.onAdd;
   useEffect(() => {
     fetch("https://fakestoreapi.com/products/6")
       .then((res) => res.json())
@@ -17,16 +18,16 @@ const Star = () => {
         <h3>{data.title} </h3>
         <p>{data.description} </p>
         <div className="bot">
-          <a href="#">
+          <a href="/">
             <Heart />
           </a>
-          <a href="#">
+          <button className="btn-cart" onClick={() => onAdd(data)}>
             <Cart />
-          </a>
+          </button>
           <p>
             <span>{data.price} $ </span>
           </p>
-          <button>Buy Now</button>
+          <button className="buyNow">Buy Now</button>
         </div>
       </div>
       <img src={data.image} alt="product_image" />

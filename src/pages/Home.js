@@ -2,10 +2,11 @@ import Categories from "../components/Categories";
 import Products from "../components/Products";
 import Star from "../components/Star";
 
-function Home() {
+function Home(props) {
+  const onAdd = props.onAdd;
   return (
     <div className="Home">
-      <Star />
+      <Star onAdd={onAdd} />
       <Categories />
       <Products />
     </div>

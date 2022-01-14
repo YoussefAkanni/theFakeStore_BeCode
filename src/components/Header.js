@@ -12,7 +12,7 @@ const Header = (props) => {
   const [login, setLogin] = useState(false);
   const [displayCart, setDisplayCart] = useState(false);
   const [username, setUsername] = useState("");
-  console.log(displayCart);
+  const { cartItems, onRemove } = props;
 
   const toggleActive = (e) => {
     setActive(!isActive);
@@ -33,10 +33,10 @@ const Header = (props) => {
         <h1>theFakeStore</h1>
       </Link>
       <div className="logos">
-        <a href="#">
+        <a href="/">
           <Search />
         </a>
-        <a href="#">
+        <a href="/">
           <Heart />
         </a>
         <button className="btn-cart" onClick={handleCart}>
@@ -46,6 +46,31 @@ const Header = (props) => {
         {displayCart ? (
           <div className="cart">
             <div className="arrow"></div>
+            {cartItems.length === 0 && (
+              <div> The shopping cart is empty . </div>
+            )}
+            <div className="containers">
+              {cartItems.map((item) => (
+                <div key={item.id} className="row">
+                  <img
+                    className="itemImg"
+                    src={item.image}
+                    alt="product-image"
+                  />
+                  <div> {item.qty} </div>
+                  <div className="itemInfo">
+                    <div>{item.title} </div>
+                    <div> $ {item.price} </div>
+                  </div>
+                  <button className="remove" onClick={onRemove}>
+                    -
+                  </button>
+                </div>
+              ))}
+            </div>
+            <div className="order">
+              <button className="placeOrder">Place Order</button>
+            </div>
           </div>
         ) : (
           ""
@@ -65,12 +90,12 @@ const Header = (props) => {
         )}
       </div>
       <div className={isDisplay ? "is-display menu" : "menu"}>
-        <a href="#">Search</a>
-        <a href="#">Like</a>
-        <a href="#">Cart</a>
+        <a href="/">Search</a>
+        <a href="/">Like</a>
+        <a href="/">Cart</a>
       </div>
       <a
-        href="#"
+        href="/"
         className={isActive ? "is-active menu-button" : "menu-button"}
         id="menuButton"
         onClick={(e) => toggleActive(e)}
