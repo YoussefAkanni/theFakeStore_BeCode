@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Category from "./pages/Category";
-import Footer from "./components/Footer";
+
 import Header from "./components/Header";
 import Product from "./pages/Product";
 import About from "./pages/About";
@@ -31,9 +31,27 @@ function App() {
     }
   };
 
+  const onRemove = (product) => {
+    const exist = cartItems.find((elem) => elem.id === product.id);
+    if (exist.qty === 1) {
+      setCratItems(cartItems.filter((elem) => elem.id !== product.id));
+    } else {
+      setCratItems(
+        cartItems.map((elem) =>
+          elem.id === product.id
+            ? {
+                ...exist,
+                qty: exist.qty - 1,
+              }
+            : elem
+        )
+      );
+    }
+  };
+
   return (
     <Router>
-      <Header cartItems={cartItems} />
+      <Header cartItems={cartItems} onRemove={onRemove} />
       <Routes>
         <Route path="/" exact={true} element={<Home onAdd={onAdd} />}></Route>
         <Route path="/product/:ids" element={<Product onAdd={onAdd} />}></Route>
@@ -42,7 +60,6 @@ function App() {
         <Route path="/register" element={<Register />}></Route>
         <Route path="*" element={<NotFound />} />
       </Routes>
-      <Footer />
     </Router>
   );
 }

@@ -14,6 +14,8 @@ const Header = (props) => {
   const [username, setUsername] = useState("");
   const { cartItems, onRemove } = props;
 
+  const itemsPrice = cartItems.reduce((a, c) => a + c.price * c.qty, 0);
+
   const toggleActive = (e) => {
     setActive(!isActive);
     setIsDisplay(!isDisplay);
@@ -46,10 +48,10 @@ const Header = (props) => {
         {displayCart ? (
           <div className="cart">
             <div className="arrow"></div>
-            {cartItems.length === 0 && (
-              <div> The shopping cart is empty . </div>
-            )}
             <div className="containers">
+              {cartItems.length === 0 && (
+                <div> The shopping cart is empty . </div>
+              )}
               {cartItems.map((item) => (
                 <div key={item.id} className="row">
                   <img
@@ -62,14 +64,24 @@ const Header = (props) => {
                     <div>{item.title} </div>
                     <div> $ {item.price} </div>
                   </div>
-                  <button className="remove" onClick={onRemove}>
+                  <button className="remove" onClick={() => onRemove(item)}>
                     -
                   </button>
                 </div>
               ))}
             </div>
             <div className="order">
-              <button className="placeOrder">Place Order</button>
+              {cartItems.length >= 1 && (
+                <>
+                  {cartItems.length !== 0 && (
+                    <>
+                      <hr></hr>
+                      <p className="price">total $ {itemsPrice.toFixed(2)}</p>
+                    </>
+                  )}
+                  <button className="placeOrder">Place Order</button>
+                </>
+              )}
             </div>
           </div>
         ) : (
