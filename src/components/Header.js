@@ -10,9 +10,8 @@ const Header = (props) => {
   const [isDisplay, setIsDisplay] = useState(false);
   const [buttonPopup, setButtonPopup] = useState(false);
   const [login, setLogin] = useState(false);
-  const [displayCart, setDisplayCart] = useState(false);
   const [username, setUsername] = useState("");
-  const { cartItems, onRemove } = props;
+  const { cartItems, onRemove, setDisplayCart, displayCart } = props;
 
   const itemsPrice = cartItems.reduce((a, c) => a + c.price * c.qty, 0);
 
@@ -102,8 +101,6 @@ const Header = (props) => {
         )}
       </div>
       <div className={isDisplay ? "is-display menu" : "menu"}>
-        <a href="/">Search</a>
-        <a href="/">Like</a>
         <a href="/">Cart</a>
       </div>
       <a

@@ -102,6 +102,7 @@ header {
       display: flex;
       justify-content: space-around;
       align-items: center;
+      max-width: 100%;
       .itemImg {
         width: 7em;
         height: 7em;
@@ -162,6 +163,15 @@ header {
         text-decoration: none;
         margin-bottom: 10px;
         color: #000000;
+      }
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .row {
+      flex-direction: column;
+      .itemInfo {
+        max-width: 80% !important;
+        min-width: 80% !important;
       }
     }
   }
