@@ -11,7 +11,6 @@ import NotFound from "./pages/NotFound";
 import Register from "./pages/Register";
 
 function App() {
-  const [displayCart, setDisplayCart] = useState(false);
   const [cartItems, setCratItems] = useState([]);
 
   const onAdd = (product) => {
@@ -54,27 +53,8 @@ function App() {
     <Router>
       <Header cartItems={cartItems} onRemove={onRemove} />
       <Routes>
-        <Route
-          path="/"
-          exact={true}
-          element={
-            <Home
-              onAdd={onAdd}
-              setDisplayCart={setDisplayCart}
-              displayCart={displayCart}
-            />
-          }
-        ></Route>
-        <Route
-          path="/product/:ids"
-          element={
-            <Product
-              onAdd={onAdd}
-              setDisplayCart={setDisplayCart}
-              displayCart={displayCart}
-            />
-          }
-        ></Route>
+        <Route path="/" exact={true} element={<Home onAdd={onAdd} />}></Route>
+        <Route path="/product/:ids" element={<Product onAdd={onAdd} />}></Route>
         <Route path="/category/:category" element={<Category />}></Route>
         <Route path="/about" element={<About />}></Route>
         <Route path="/register" element={<Register />}></Route>

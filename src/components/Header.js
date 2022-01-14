@@ -11,7 +11,8 @@ const Header = (props) => {
   const [buttonPopup, setButtonPopup] = useState(false);
   const [login, setLogin] = useState(false);
   const [username, setUsername] = useState("");
-  const { cartItems, onRemove, setDisplayCart, displayCart } = props;
+  const [displayCart, setDisplayCart] = useState(false);
+  const { cartItems, onRemove } = props;
 
   const itemsPrice = cartItems.reduce((a, c) => a + c.price * c.qty, 0);
 
